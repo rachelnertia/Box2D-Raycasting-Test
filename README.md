@@ -15,7 +15,7 @@ Once you've downloaded the repo, the only thing you should need to do to build i
 
 I'm probably going to spend a little time working out how to do the above, but I might not have the time. Either way, hopefully other people can use this code as a reference!
 
-You can download a build from here: https://www.dropbox.com/s/t6t2l3zmqxqjmok/box2d_raycasting_test.zip?dl=0
+There should be a .zip you can download containing a build of the demo under 'Releases' on this here repo.
 
 **Controls:**
 - **Q** to switch between Box2D debug draw mode and raycasting mode
