@@ -1,25 +1,31 @@
 # Box2D Raycasting Test
 
-I undertook a wee experiment to see if you could use `b2World::RayCast` to render the Box2D world using old-school Wolfenstein3D-style raycasting. You can!
+I undertook a wee experiment to see if you could use `b2World::RayCast` to render the Box2D world using old-school *Wolfenstein 3D*-style raycasting. You can!
 
-**Installation**: [SFML](http://www.sfml-dev.org/) 2.3.2 is used for window management and for easy graphics. The latest version of [Box2D](https://github.com/erincatto/Box2D), including the .lib and .pdb files, has been included in the repo for convenience.
+([Here's a good tutorial on raycasting](http://lodev.org/cgtutor/raycasting.html), if you're wondering what this is all about.)
 
-Once you've downloaded the repo, the only thing you should need to do to build is to fix the Visual Studio project settings so that it knows where to find your copy of the SFML 2.3.2 headers and .libs. Then you *should* be good to go.
+**Installation:** [SFML](http://www.sfml-dev.org/) 2.3.2 is used for window management and for easy graphics. The latest version of [Box2D](https://github.com/erincatto/Box2D), including the .lib and .pdb files, has been included in the repo for convenience.
 
-What I haven't figured out yet:
+Once you've downloaded the repo, the only thing you should need to do to build is to fix the Visual Studio project settings so that it knows where to find your copy of the SFML 2.3.2 headers and .libs. The .dlls are already in the /Debug and /Release folders. Then you *should* be good to go.
+
+**What I haven't figured out yet:**
 - How to texture the walls - without a way to figure out how far along the wall the ray hit point is, this is kinda hard.
-- How sprites should be incorporated.
+- How sprites should be drawn.
 - What kind of cool physicsy FPS I should make using this!
 
-Hopefully other people can use this code for fun and profit!
+I'm probably going to spend a little time working out how to do the above, but I might not have the time. Either way, hopefully other people can use this code as a reference!
 
 You can download a build from here: https://www.dropbox.com/s/t6t2l3zmqxqjmok/box2d_raycasting_test.zip?dl=0
 
-Controls:
+**Controls:**
 - **Q** to switch between Box2D debug draw mode and raycasting mode
 - **WASD** to move the camera
 - **Left/Right Arrow** to rotate the camera
 - **Z/X** to decrease/increase the viewing angle
 - **F/G** to decrease/increase the image resolution
-- **E** to toggle between the two ways that the distance from the camera to the ray hit point can be calculated: 1) Euclidean distance or 2) perpendicular distance
-- **R** to toggle between the two ways that the ray direction can be calculated: 1) by rotating the camera's forward vector, or 2) by skewing it along the viewing plane vector
+- **E** to toggle between the two ways that the distance from the camera to the ray hit point can be calculated:
+ - 1) Euclidean distance
+ - 2) Perpendicular distance
+- **R** to toggle between the two ways that the ray direction can be calculated:
+  - 1) Rotating the camera's forward vector
+  - 2) Skewing the camera's forward vector along the viewing plane
