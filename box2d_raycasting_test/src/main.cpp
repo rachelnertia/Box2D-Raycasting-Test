@@ -226,54 +226,63 @@ int main() {
 			}
 		}
 
-		// If 1/60th of a second has passed, step the Box2D world.
 		{
 			dt += clock.restart().asSeconds();
 			float timestep = 1.0f / 60.0f;
-			if (dt >= timestep) {
+			if (dt >= timestep) { // If 1/60th of a second has passed...
 				dt = 0.0f;
-				int velocity_iterations = 8;
-				int position_iterations = 2;
-				world.Step(timestep, velocity_iterations, position_iterations);
+
+				// Step the Box2D world.
+				{
+					int velocity_iterations = 8;
+					int position_iterations = 2;
+					world.Step(timestep, velocity_iterations, position_iterations);
+				}
+				
+				// Move and rotate the camera.
+				{
+					const float movespeed = 0.1f;
+
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+						camera.pos += movespeed * b2Vec2(camera.fwd.x, camera.fwd.y);
+					}
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+						camera.pos -= movespeed * b2Vec2(camera.fwd.x, camera.fwd.y);
+					}
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+						b2Vec2 left(camera.fwd.y, -camera.fwd.x);
+						camera.pos += movespeed * left;
+					}
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+						b2Vec2 left(camera.fwd.y, -camera.fwd.x);
+						camera.pos -= movespeed * left;
+					}
+
+					const float rotatespeed = 0.05f;
+
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+						camera.fwd = RotateVec(camera.fwd, -rotatespeed);
+					}
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+						camera.fwd = RotateVec(camera.fwd, rotatespeed);
+					}
+				}
+
+				// Change the size of the viewing angle / width of the viewing plane
+				{
+					const float angle_change_speed = 0.05f;
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
+						angle_modifier -= angle_change_speed;
+						angle_modifier = std::max(angle_modifier, 0.25f);
+					}
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::X)) {
+						angle_modifier += angle_change_speed;
+						angle_modifier = std::min(angle_modifier, 2.0f);
+					}
+				}
 			}
 		}
 
-		// Handle kayboard input...
-		{
-			// Move and rotate the camera.
-			{
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-					camera.pos += b2Vec2(camera.fwd.x * 0.01f, camera.fwd.y * 0.01f);
-				}
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-					camera.pos -= b2Vec2(camera.fwd.x * 0.01f, camera.fwd.y * 0.01f);
-				}
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-					b2Vec2 left(camera.fwd.y, -camera.fwd.x);
-					camera.pos += 0.01f * left;
-				}
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-					b2Vec2 left(camera.fwd.y, -camera.fwd.x);
-					camera.pos -= 0.01f * left;
-				}
-
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-					camera.fwd = RotateVec(camera.fwd, -0.005f);
-				}
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-					camera.fwd = RotateVec(camera.fwd, 0.005f);
-				}
-			}
-			// Change the size of the viewing angle / width of the viewing plane
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
-				angle_modifier -= 0.001f;
-				angle_modifier = std::max(angle_modifier, 0.25f);
-			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::X)) {
-				angle_modifier += 0.001f;
-				angle_modifier = std::min(angle_modifier, 2.0f);
-			}
-		}
 
 		window.clear(sf::Color(128, 128, 255));
 
