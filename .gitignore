@@ -1,0 +1,10 @@
+*.exe
+*.sdf
+/box2d_raycasting_test/Debug
+/box2d_raycasting_test/Release
+/box2d_raycasting_test/*.user
+/*.suo
+/*.opensdf
+/Debug/box2d_raycasting_test.ilk
+/Debug/box2d_raycasting_test.pdb
+/Release/box2d_raycasting_test.pdb
