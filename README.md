@@ -8,6 +8,8 @@ I undertook a wee experiment to see if you could use `b2World::RayCast` to rende
 
 Once you've downloaded the repo, the only thing you should need to do to build is to fix the Visual Studio project settings so that it knows where to find your copy of the SFML 2.3.2 headers and .libs. The .dlls are already in the /Debug and /Release folders. Then you *should* be good to go.
 
+(I'm on Windows, using VS2013, but if you're not it should be possible to adapt.)
+
 **What I haven't figured out yet:**
 - How to texture the walls - without a way to figure out how far along the wall the ray hit point is, this is kinda hard.
 - How sprites should be drawn.
