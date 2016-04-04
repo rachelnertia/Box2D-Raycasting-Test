@@ -1,5 +1,5 @@
-![](http://i.imgur.com/eaTWgUF.png)
-![](http://i.imgur.com/0yXav4T.png)
+<img src="http://i.imgur.com/eaTWgUF.png" width="45%"/> 
+<img src="http://i.imgur.com/0yXav4T.png" width="45%"/>
 
 # Box2D Raycasting Test
 
