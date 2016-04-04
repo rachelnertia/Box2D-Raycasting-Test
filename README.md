@@ -1,8 +1,13 @@
+![](http://i.imgur.com/eaTWgUF.png)
+![](http://i.imgur.com/0yXav4T.png)
+
 # Box2D Raycasting Test
 
 I undertook a wee experiment to see if you could use `b2World::RayCast` to render the Box2D world using old-school *Wolfenstein 3D*-style raycasting. You can!
 
 ([Here's a good tutorial on raycasting](http://lodev.org/cgtutor/raycasting.html), if you're wondering what this is all about.)
+
+More screenshots on [imgur](http://imgur.com/a/ftIpR).
 
 **Installation:** [SFML](http://www.sfml-dev.org/) 2.3.2 is used for window management and for easy graphics. The latest version of [Box2D](https://github.com/erincatto/Box2D), including the .lib and .pdb files, has been included in the repo for convenience.
 
