@@ -265,17 +265,17 @@ int main() {
 	RenderInfo wall_render_info_2;
 	wall_render_info_2.type = RenderInfo::Type::Wall;
 	wall_render_info_2.color = sf::Color(0, 255, 0, 128);
-	RenderInfo spr_udt;
-	spr_udt.type = RenderInfo::Type::Sprite;
-	spr_udt.texture = &sprite_tex;
-	spr_udt.sprite_radius = 0.5f;
+	RenderInfo spr_render_info;
+	spr_render_info.type = RenderInfo::Type::Sprite;
+	spr_render_info.texture = &sprite_tex;
+	spr_render_info.sprite_radius = 0.5f;
 
 	AddStaticBox(world, b2Vec2(2.5f, 2.5f), b2Vec2(1.0f, 1.0f), &wall_render_info_0);
 	AddStaticBox(world, b2Vec2(7.0f, 2.5f), b2Vec2(1.0f, 1.0f), &wall_render_info_0);
 	AddStaticBox(world, b2Vec2(7.0f, 7.0f), b2Vec2(1.0f, 1.0f), &wall_render_info_1);
 	AddStaticBox(world, b2Vec2(2.5f, 7.0f), b2Vec2(1.0f, 1.0f), &wall_render_info_2);
 
-	AddStaticCircle(world, b2Vec2(4.0f, 4.0f), 0.5f, &spr_udt);
+	AddStaticCircle(world, b2Vec2(4.0f, 4.0f), 0.5f, &spr_render_info);
 	AddStaticCircle(world, b2Vec2(9.0f, 9.0f), 1.0f, &wall_render_info_0);
 	AddStaticCircle(world, b2Vec2(12.0f, 5.0f), 0.75f, &wall_render_info_1);
 
