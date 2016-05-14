@@ -7,6 +7,7 @@
 #include "SFML/Graphics/ConvexShape.hpp"
 #include "SFML/Graphics/CircleShape.hpp"
 
+
 void DebugDrawerSFML::DrawPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color) {
 	sf::ConvexShape polygon(vertexCount);
 	for (int i = 0; i < vertexCount; ++i) {
